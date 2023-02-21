@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/Sikerdebaard/cost-of-living.git .
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 
 EXPOSE 8501
 
