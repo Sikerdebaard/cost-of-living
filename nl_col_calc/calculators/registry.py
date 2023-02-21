@@ -1,0 +1,2 @@
+class FlagRegistry(dict):
+    pass
