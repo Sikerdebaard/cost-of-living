@@ -20,7 +20,7 @@ def init():
 def page():
     st.title('Netherlands Cost of Living Calculator')
     notify_text('Numbers indicated by this tool are indications only. No rights can be derived from this information.')
-    notify_text('This tool does not store or collect any data. If you wish to store your results you can export to PDF at the bottom of this page.')
+    notify_text('This tool does not store or collect any data. If you wish to store your results you can export to Excel worksheet at the bottom of this page.')
 
     ppp()
 
@@ -34,7 +34,7 @@ def page():
     if res is not None and res.index.shape[0] > 0:
         st.header('Total monthly benefits and expenses:')
         st.write(stylize(res))
-        st.write(f'Based on this you need a minimum of €{-(res["benefits"].fillna(0).sum() - res["expenses"].fillna(0).sum()):.00f} salary a month')
+        st.write(f'Based on this you need a minimum of €{-(res["benefits"].fillna(0).sum() - res["expenses"].fillna(0).sum()):.00f} income after taxes a month')
 
         memxls = BytesIO()
         res.to_excel(memxls, index_label="name")  # write to BytesIO buffer

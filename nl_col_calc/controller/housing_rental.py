@@ -81,9 +81,9 @@ def rental():
     pred = predict(city, m2, garden, parking, upholstry)
 
     budget = st.number_input('How much budget do you wish to allocate for housing rental per month in euros?', min_value=0, value=int(pred["mean"]))
-    
+
     calcresult(f'Based on your inputs the budget needed for housing is between €{pred["mean_ci_lower"]:.00f} - €{pred["mean_ci_upper"]:.00f} with a mean at €{pred["mean"]:.00f} and a StdErr of €{pred["mean_se"]:.00f}', sub=[name, budget])
     
-    notify_text(f'Many landlords ask for a 2x to 4x salary income as compared to the monthly rental price. An income of €{budget*2} - €{budget*4} would be advisable to increase your odds of finding housing.')
+    notify_text(f'Many landlords ask for a 2x to 4x salary income as compared to the monthly rental price. A gross income (before taxes) of €{budget*2} - €{budget*4} would be advisable to increase your odds of finding housing.')
 
     
